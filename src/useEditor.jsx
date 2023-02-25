@@ -38,6 +38,25 @@ const useEditor = () => {
     removeBlock(block) {
       setBlocks((s) => s.filter((b) => b.id !== block.id));
     },
+    moveBlock(block, value) {
+      let prevIndex = 0;
+      let filtered = blocks.filter((b, index) => {
+        if (b.id === block.id) {
+          prevIndex = index;
+          return false;
+        }
+        return true;
+      });
+      let nextIndex = prevIndex + value;
+
+      filtered.splice(
+        nextIndex >= 0 && nextIndex < blocks.length ? nextIndex : prevIndex,
+        0,
+        block
+      );
+      setBlocks(filtered);
+    },
+
     format(style) {
       document.execCommand(style);
     },

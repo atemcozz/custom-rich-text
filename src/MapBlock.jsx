@@ -1,8 +1,24 @@
 import React from "react";
 
-const MapBlock = ({ id, children, content, onChange, onDelete }) => {
+const MapBlock = ({
+  id,
+  children,
+  content,
+  onChange,
+  onDelete,
+  onMoveUp,
+  onMoveDown,
+}) => {
   return (
     <div className="flex">
+      <div className="flex flex-col w-5">
+        <button className="bg-blue-300" onClick={onMoveUp}>
+          ↑
+        </button>
+        <button className="bg-blue-300" onClick={onMoveDown}>
+          ↓
+        </button>
+      </div>
       <div className="flex-1">
         <iframe
           width="425"

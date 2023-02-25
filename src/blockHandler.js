@@ -10,6 +10,8 @@ function blockHandler(block, editor) {
           content={block.content}
           onChange={(data) => editor.setBlockContent(block, data)}
           onDelete={() => editor.removeBlock(block)}
+          onMoveUp={() => editor.moveBlock(block, -1)}
+          onMoveDown={() => editor.moveBlock(block, 1)}
         />
       );
     case "image":
@@ -19,6 +21,8 @@ function blockHandler(block, editor) {
           content={block.content}
           onChange={(data) => editor.setBlockContent(block, data)}
           onDelete={() => editor.removeBlock(block)}
+          onMoveUp={() => editor.moveBlock(block, -1)}
+          onMoveDown={() => editor.moveBlock(block, 1)}
         />
       );
     case "geo":
@@ -28,6 +32,8 @@ function blockHandler(block, editor) {
           content={block.content}
           onChange={(data) => editor.setBlockContent(block, data)}
           onDelete={() => editor.removeBlock(block)}
+          onMoveUp={() => editor.moveBlock(block, -1)}
+          onMoveDown={() => editor.moveBlock(block, 1)}
         />
       );
     default:
