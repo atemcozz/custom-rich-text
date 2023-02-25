@@ -1,15 +1,15 @@
 import React from "react";
 
-const Editor = ({ editor, handler, className }) => {
+const Editor = ({ editor, blockHandler, className }) => {
   if (!editor) {
     throw new Error("Editor instance must be provided to Editor component");
   }
-  if (!handler) {
+  if (!blockHandler) {
     throw new Error("Handler function must be provided to Editor component");
   }
   return (
     <div className={className}>
-      {editor?.getBlocks()?.map((block) => handler(block, editor))}
+      {editor?.getBlocks()?.map((block) => blockHandler(block, editor))}
     </div>
   );
 };
